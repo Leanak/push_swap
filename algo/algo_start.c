@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 22:22:05 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/05 18:04:21 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/06 17:26:21 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 		do_opes(&finale, stack_a, stack_b);
 		pb(stack_b, stack_a);
 	}
+	quick_sort_algo(stack_a);
 	rotate_to_max(stack_b);
 	while (!is_empty(stack_b))
 	{

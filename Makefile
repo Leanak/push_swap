@@ -6,7 +6,7 @@
 #    By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/17 13:04:31 by lenakach          #+#    #+#              #
-#    Updated: 2025/07/05 14:12:50 by lenakach         ###   ########.fr        #
+#    Updated: 2025/07/05 18:00:59 by lenakach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ UTILS = $(UTILS_DIR)/arguments.c $(UTILS_DIR)/get_tab.c $(UTILS_DIR)/quick_sort.
 ALGO_DIR = algo
 ALGO = $(ALGO_DIR)/algo_start.c $(ALGO_DIR)/algo_small.c \
 	$(ALGO_DIR)/algo_utils.c $(ALGO_DIR)/algo.c $(ALGO_DIR)/algo_cost_to_B.c \
-	$(ALGO_DIR)/algo_cost_to_A.c $(ALGO_DIR)/algo_cost_A.c $(ALGO_DIR)/algo_cost_B.c
+	$(ALGO_DIR)/algo_cost_to_A.c $(ALGO_DIR)/algo_cost_A.c $(ALGO_DIR)/algo_cost_B.c \
+	$(ALGO_DIR)/algo_utils2.c
 
 SRCS = $(ALGO) $(OPES) $(LIBFT) $(UTILS) push_swap.c
 

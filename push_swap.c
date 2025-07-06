@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:18:49 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/05 13:36:42 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:28:46 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	main(int ac, char **av)
 {
-	int		init;
-	int		error;
-	char	**split;
+	int			init;
+	int			error;
+	char		**split;
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	error = 1;
-	if (ac == 1 || av[1][0] == '\0')		
+	if (ac == 1 || av[1][0] == '\0')
 		return (1);
 	split = arguments(ac, av, &error);
 	get_tab(split, &error);

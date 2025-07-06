@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 22:22:05 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/05 17:15:17 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:04:21 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	start_algo(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	}
 	push_b(stack_a, stack_b);
-	//print_stack(*stack_a);
 }
 
 void	set_zero(t_detail **finale)
@@ -56,7 +55,6 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 		find_best_move_b(*stack_a, *stack_b, &finale);
 		do_opes(&finale, stack_a, stack_b);
 		pb(stack_b, stack_a);
-		//check_top(stack_b);
 	}
 	rotate_to_max(stack_b);
 	while (!is_empty(stack_b))

@@ -6,11 +6,18 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:00:18 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/04 13:38:41 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:45:16 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	init_var(int *i, int *sign, long long *res)
+{
+	*i = 0;
+	*res = 0;
+	*sign = 1;
+}
 
 static int	ft_atoi_pars(char *str, int *error)
 {
@@ -18,9 +25,7 @@ static int	ft_atoi_pars(char *str, int *error)
 	int			sign;
 	long long	res;
 
-	i = 0;
-	res = 0;
-	sign = 1;
+	init_var(&i, &sign, &res);
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -29,26 +34,15 @@ static int	ft_atoi_pars(char *str, int *error)
 			sign = -sign;
 		i++;
 	}
-	if (str[i] < '0' || str[i] > '9')
-	{
-		*error = -1;
-		return (0);
-	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i] - 48);
 		if ((res * sign) < INT_MIN || (res * sign) > INT_MAX)
-		{
-			*error = -1;
-			return (0);
-		}
+			return (*error = -1, 0);
 		i++;
 	}
 	if (str[i] != '\0')
-	{
-		*error = -1;
-		return (0);
-	}
+		return (*error = -1, 0);
 	return (res * sign);
 }
 
@@ -67,28 +61,24 @@ static int	check_doublon(int *tab, int len)
 			return (1);
 		tmp = tab[i];
 	}
-	
 	return (0);
 }
 
-void get_tab(char **split, int *error)
+void	get_tab(char **split, int *error)
 {
 	int	len;
 	int	*tab;
 	int	i;
 
 	len = 0;
+	i = -1;
 	if (!split)
 		return ;
 	while (split[len])
 		len++;
 	tab = malloc(len * sizeof(int));
 	if (!tab || len == 0)
-	{
-		*error = -1;
-		return (free(tab));
-	}
-	i = -1;
+		return (free(tab), *error = -1, (void)0);
 	while (++i < len)
 	{
 		tab[i] = ft_atoi_pars(split[i], error);
@@ -98,9 +88,6 @@ void get_tab(char **split, int *error)
 	}
 	quick_sort(tab, 0, len - 1);
 	if (check_doublon(tab, len) == 1)
-	{
-		*error = -1;
-		return (free(tab), free(split));
-	}	
+		return (free(tab), free(split), *error = -1, (void)0);
 	return (free(tab), free(split));
 }

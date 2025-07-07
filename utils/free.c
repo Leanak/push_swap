@@ -6,16 +6,16 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 20:31:42 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/03 20:08:40 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:13:35 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**free_all(char **split, int i, char **tmp, int j)
+char	**free_all(char **split, char **tmp)
 {
-	free_split(split, i);
-	free_split(tmp, j);
+	free_split2(split);
+	free_split2(tmp);
 	return (NULL);
 }
 
@@ -37,16 +37,12 @@ void	free_stack(t_stack	**stack)
 	(*stack) = NULL;
 }
 
-char	**free_split(char **split, int i)
+void	free_split2(char **split)
 {
-	if (!split)
-		return (NULL);
-	while (i >= 0)
-	{
-		if (split[i])
-			free(split[i]);
-		i--;
-	}
+	int	i;
+
+	i = 0;
+	while (split[i])
+		free(split[i++]);
 	free(split);
-	return (NULL);
 }

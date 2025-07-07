@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:19:20 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 17:41:11 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/06 18:15:47 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sa(t_stack **stack_a)
 {
 	int	tmp;
-	
+
 	if (!stack_a || !*stack_a)
 		return ;
 	tmp = (*stack_a)->valeur;

@@ -6,11 +6,21 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:49:26 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 17:57:48 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/06 18:13:54 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static void	clean_exit(t_stack **s_a, t_stack **s_b, char **line)
+{
+	free_stack(s_a);
+	free_stack(s_b);
+	if (*line)
+		free(line);
+	write(2, "Error\n", 6);
+	exit (1);
+}
 
 void	do_instruction(t_stack **s_a, t_stack **s_b, char **line)
 {
@@ -37,19 +47,12 @@ void	do_instruction(t_stack **s_a, t_stack **s_b, char **line)
 	else if (ft_strcmp(*line, "rr") == 0)
 		rr_bonus(s_a, s_b);
 	else
-	{
-		if (*line)
-			free(*line);
-		free_stack(s_a);
-		free_stack(s_b);
-		write(2, "Error\n", 6);
-		exit (1);
-	}
+		clean_exit(s_a, s_b, line);
 }
 
 void	read_instructions(t_stack **s_a, t_stack **s_b)
 {
-	int	res;
+	int		res;
 	char	*line;
 	char	buffer[2];
 
@@ -86,9 +89,8 @@ void	start_checker(t_stack *s_a, t_stack *s_b)
 		write(1, "KO\n", 3);
 		free_stack(&s_a);
 		free_stack(&s_b);
-		exit (1) ;
+		exit (1);
 	}
-	
 }
 
 int	main(int ac, char **av)
@@ -98,7 +100,7 @@ int	main(int ac, char **av)
 	int		init;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	
+
 	error = 1;
 	init = 0;
 	stack_a = NULL;
@@ -112,7 +114,7 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	init = init_stack(&stack_a, arguments(ac, av, &error));	
+	init = init_stack(&stack_a, arguments(ac, av, &error));
 	if (init == 1)
 		start_checker(stack_a, stack_b);
 	free_stack(&stack_a);

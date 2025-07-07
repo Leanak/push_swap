@@ -6,11 +6,32 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:03:09 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 15:22:48 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:16:05 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
+
+int	is_sorted(t_stack *stack)
+{
+	int	i;
+	int	len;
+
+	len = len_stack(stack);
+	if (len > 0)
+	{
+		i = 1;
+		while (i < len)
+		{
+			if (stack->valeur > stack->next->valeur)
+				return (0);
+			stack = stack->next;
+			i++;
+		}
+		return (1);
+	}
+	return (0);
+}
 
 int	is_args_empty(int ac, char **av)
 {
@@ -38,11 +59,11 @@ static int	count_split(char **tmp)
 	return (i);
 }
 
-static char	**sortie(char **tmp, char **split, int len_tmp, int i)
+static char	**sortie(char **tmp, char **split)
 {
 	if (*tmp)
-		free_split(tmp, len_tmp -1);
-	free_split(split, i - 1);
+		free_split2(tmp);
+	free_split2(split);
 	return (NULL);
 }
 
@@ -64,12 +85,12 @@ char	**arguments(int ac, char **av, int *error)
 		if (!tmp || count_split(tmp) != 1)
 		{
 			*error = -1;
-			return (sortie(tmp, split, count_split(tmp), i));
+			return (sortie(tmp, split));
 		}
 		split[i] = ft_strdup(av[i + 1]);
 		if (!split[i])
-			return (free_all(split, i - 1, tmp, count_split(tmp)));
-		free_split(tmp, count_split(tmp) - 1);
+			return (free_all(split, tmp));
+		free_split2(tmp);
 	}
 	split[ac - 1] = NULL;
 	return (split);

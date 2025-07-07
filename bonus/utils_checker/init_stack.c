@@ -6,11 +6,11 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:51:50 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 15:23:00 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:11:07 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
 int	init_stack(t_stack **stack_a, char **split)
 {
@@ -31,8 +31,8 @@ int	init_stack(t_stack **stack_a, char **split)
 		j = ft_atoi(split[i]);
 		error = add_to_list(stack_a, j);
 		if (error == -2)
-			return (free_split(split, len), 0);
+			return (free_split2(split), 0);
 	}
-	free_split(split, len);
+	free_split2(split);
 	return (1);
 }

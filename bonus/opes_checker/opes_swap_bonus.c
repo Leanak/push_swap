@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:19:20 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 17:59:11 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/06 18:15:21 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sa_bonus(t_stack **stack_a)
 void	sb_bonus(t_stack **stack_b)
 {
 	int	tmp;
-	
+
 	if (!stack_b || !*stack_b)
 		return ;
 	tmp = (*stack_b)->valeur;

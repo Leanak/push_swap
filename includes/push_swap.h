@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:19:07 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/05 17:09:04 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:09:54 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ void	quick_sort(int *tab, int min, int max);
 int		init_stack(t_stack **stack_a, char **split);
 char	**free_split(char **split, int i);
 void	free_stack(t_stack	**stack);
-char	**free_split(char **split, int i);
-char	**free_all(char **split, int i, char **tmp, int j);
+char	**free_all(char **split, char **tmp);
+void	free_split2(char **split);
 
 //Fonction tmp
 void	print_split(char **split);

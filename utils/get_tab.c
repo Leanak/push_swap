@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:00:18 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/05 17:45:16 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:54:40 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,10 @@ void	get_tab(char **split, int *error)
 	{
 		tab[i] = ft_atoi_pars(split[i], error);
 		if (*error == -1)
-			return (free(split));
-		free(split[i]);
+			return ((void)free_split2(split), free(tab));
 	}
 	quick_sort(tab, 0, len - 1);
 	if (check_doublon(tab, len) == 1)
 		return (free(tab), free(split), *error = -1, (void)0);
-	return (free(tab), free(split));
+	return (free(tab), (void)free_split2(split));
 }

@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:49:58 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 15:32:07 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/06 18:02:29 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ void	rr_bonus(t_stack **stack_a, t_stack **stack_b);
 void	sa_bonus(t_stack **stack_a);
 void	sb_bonus(t_stack **stack_b);
 void	ss_bonus(t_stack **stack_a, t_stack **stack_b);
-
 
 #endif

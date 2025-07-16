@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:49:26 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 18:13:54 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/16 15:21:46 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	clean_exit(t_stack **s_a, t_stack **s_b, char **line)
 	free_stack(s_a);
 	free_stack(s_b);
 	if (*line)
-		free(line);
+		free(*line);
 	write(2, "Error\n", 6);
 	exit (1);
 }

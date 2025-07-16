@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 13:32:00 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/06 18:14:29 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/07/16 15:27:13 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
+	if (!s1)
+		return (-1);
 	while (s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])

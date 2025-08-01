@@ -6,7 +6,7 @@
 /*   By: lenakach <lenakach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:49:26 by lenakach          #+#    #+#             */
-/*   Updated: 2025/07/16 15:21:46 by lenakach         ###   ########.fr       */
+/*   Updated: 2025/08/01 13:09:18 by lenakach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	read_instructions(t_stack **s_a, t_stack **s_b)
 void	start_checker(t_stack *s_a, t_stack *s_b)
 {
 	read_instructions(&s_a, &s_b);
-	if (is_sorted(s_a) == 1)
+	if (is_sorted(s_a) == 1 && s_b == NULL)
 	{
 		write(1, "OK\n", 3);
 		free_stack(&s_a);
